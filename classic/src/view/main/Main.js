@@ -76,7 +76,7 @@ Ext.define('ApplicationApp.view.main.Main', {
     },
 
     items: [{
-        title: 'Home',
+        title: 'Ramesh Home',
         iconCls: 'fa-home',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
