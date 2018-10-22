@@ -7,13 +7,24 @@ Ext.define('ApplicationApp.view.main.MainController', {
 
     alias: 'controller.main',
 
-    onItemSelected: function (sender, record) {
-        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
-    },
+   // config: {
+        //control: {
+          //  "mainview #runButton": {
+            //    tap: 'runAction'
+            //}
+        //}
+    //},
 
-    onConfirm: function (choice) {
-        if (choice === 'yes') {
-            //
-        }
+
+    runAction: function(target) {
+        // Get Store reference
+        var theStore = Ext.getStore('formData');
+
+
+
+
+        // Load new Data
+        theStore.load();
     }
+
 });

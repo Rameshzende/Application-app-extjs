@@ -1,27 +1,102 @@
 /**
- * This view is an example list of people.
+ * This view is an auditor register form
  */
 Ext.define('ApplicationApp.view.main.List', {
-    extend: 'Ext.grid.Panel',
+    extend: 'Ext.form.Panel',
+    alias: 'widget.mainview',
     xtype: 'mainlist',
+    itemId:'forms',
+    viewModel:'main',
 
     requires: [
-        'ApplicationApp.store.Personnel'
+        'ApplicationApp.store.Personnel',
+        'ApplicationApp.model.Base'
+        
     ],
+    controller:'main',
 
-    title: 'Personnel',
+    title: 'Register',            
+            items: [
+                 {
+                     xtype:'textfield',
+                     fieldLabel:'First Name',
+                     name:'fName'
+                    
+                 },
+                 {
+                     xtype:'textfield',
+                     fieldLabel:'Last Name',
+                     name:' lName',
+                    
+                 },
+                 {
+                     xtype:'datefield',
+                     fieldLabel:'Date of Birth',
+                     name:'dob'
 
-    store: {
-        type: 'personnel'
-    },
+                 },
+                 {           
+                     xtype: 'combobox',
+                     fieldLabel:'Country',
+                     editable:'false',
+                     store:{
+                        type:'personnel'
+                    },
+                     layout: 'vbox',
+                     displayField:'country'
+                 },
+                
+                 {   
+                    xtype      : 'fieldcontainer',
+                    fieldLabel : 'Gender',
+                    defaultType: 'radiofield',
+                    layout: 'hbox',
+                    items: [
+                        {
+                            boxLabel  : 'Male',
+                            name      : 'gender'
+                        }, {
+                            boxLabel  : 'Female',
+                            name      : 'gender' 
+                        }
+                    ]
+                },
+                {
+                    xtype:'button',
+                    text:'Reset',
+                    handler:function(){
+                        this.up('form').getForm().reset();  
+                                }
 
-    columns: [
-        { text: 'Name',  dataIndex: 'name' },
-        { text: 'Email', dataIndex: 'email', flex: 1 },
-        { text: 'Phone', dataIndex: 'phone', flex: 1 }
-    ],
+                },
+                
+                {
+                   xtype:'button',
+                    text:'Save',
+                    style: 'position:absolute; left:200px;'
 
-    listeners: {
-        select: 'onItemSelected'
-    }
-});
+
+                 },
+                 {
+                     xtype:'button',
+                     text:'Add',
+                     style:'position:absolute; left:100px;'
+                 }
+
+
+                
+                
+
+            ],
+        
+    
+    
+           
+                    
+                
+                 
+    
+
+                
+            });
+        
